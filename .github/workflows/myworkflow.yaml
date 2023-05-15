@@ -1,0 +1,17 @@
+name: My Workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  run-groovy-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+      - name: Run Groovy script
+        run: groovy myScript.groovy
